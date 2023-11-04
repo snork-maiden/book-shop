@@ -1,0 +1,28 @@
+<label for="search">Search</label>
+<input type="search" name="search" id="search" />
+
+<table>
+  <tr>
+    <th>Picture</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Buy</th>
+  </tr>
+  <!-- <tr *ngFor="let book of books">
+    <td>
+      <img :src="book.image" :alt="book.title" />
+    </td>
+    <td>{{ book.title }}</td>
+    <td>{{ book.subtitle }}</td>
+    <td>{{ book.price }}</td>
+    <td>
+      <button type="button" *ngIf="cart[book.isbn13]?.amount; else amountButtons">Add to cart</button>
+      <ng-template #amountButtons>
+          <button type="button">-</button>
+          {{ cart[book.isbn13].amount }}
+          <button type="button">+</button>
+      </ng-template>
+    </td>
+  </tr> -->
+</table>
