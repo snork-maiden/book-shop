@@ -12,6 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: 'cart',
+        title: 'Books cart',
         component: CartComponent,
       },
       {
