@@ -1,7 +1,7 @@
 <label for="search">Search</label>
 <input type="search" name="search" id="search" />
 
-<table>
+<table *ngIf="books.length">
   <tr>
     <th>Picture</th>
     <th>Title</th>
@@ -16,13 +16,19 @@
     <td>{{ book.title }}</td>
     <td>{{ book.subtitle }}</td>
     <td>{{ book.price }}</td>
-    <!-- <td>
-      <button type="button" *ngIf="cart[book.isbn13]?.amount; else amountButtons">Add to cart</button>
+    <td>
+      <button
+        type="button"
+        *ngIf="!cart[book.isbn13]?.amount; in: cart; else: amountButtons"
+        (click)="addToCart(book.isbn13)"
+      >
+        Add to cart
+      </button>
       <ng-template #amountButtons>
-          <button type="button">-</button>
-          {{ cart[book.isbn13].amount }}
-          <button type="button">+</button>
+        <button type="button" (click)="removeFromCart(book.isbn13)">-</button>
+        {{ cart[book.isbn13].amount }}
+        <button type="button" (click)="addToCart(book.isbn13)">+</button>
       </ng-template>
-    </td> -->
+    </td>
   </tr>
 </table>

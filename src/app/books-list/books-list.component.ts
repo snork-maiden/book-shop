@@ -10,9 +10,16 @@ export class BooksListComponent implements OnInit {
   @Input({ required: true })
   books!: Array<BookData>;
 
-  cart: object = {};
+  cart: { [ISBN: string]: { amount: number } } = {};
   constructor(private cartService: CartService) {}
   ngOnInit(): void {
     this.cart = this.cartService.getState();
+  }
+
+  addToCart(isbn: string): void {
+    this.cartService.addToCart(isbn);
+  }
+  removeFromCart(isbn: string): void {
+    this.cartService.removeFromCart(isbn);
   }
 }

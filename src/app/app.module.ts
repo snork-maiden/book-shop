@@ -8,6 +8,7 @@ import { BooksListComponent } from './books-list/books-list.component';
 import { BookPageComponent } from './book-page/book-page.component';
 import { MainComponent } from './main/main.component';
 import { CartComponent } from './cart/cart.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,8 @@ import { CartComponent } from './cart/cart.component';
     MainComponent,
     CartComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [CartService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
