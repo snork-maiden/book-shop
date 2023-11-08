@@ -9,6 +9,7 @@ import { BookPageComponent } from './book-page/book-page.component';
 import { MainComponent } from './main/main.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './services/cart.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CartService } from './services/cart.service';
     MainComponent,
     CartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [CartService],
   bootstrap: [AppComponent],
 })

@@ -1,2 +1,4 @@
-<app-books-list [books]="cart"></app-books-list>
+<app-books-list [books]="cart" [isCart]="true"></app-books-list>
+<div *ngIf="cart.length">Total ${{ getTotalCart() }}</div>
+
 It's a cart

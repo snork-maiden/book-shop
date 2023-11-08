@@ -10,18 +10,19 @@ import { getBooksList } from '../services/book-api.service';
 })
 export class CartComponent implements OnInit {
   cart: Array<BookData> = [];
+  cartData: { [ISBN: string]: { amount: number } } = {};
 
   constructor(private cartService: CartService) {}
   ngOnInit(): void {
+    this.cartData = this.cartService.getState();
     this.cart = this.getCart();
   }
 
   getCart(): Array<BookData> {
-    const cartData = this.cartService.getState();
     const books = getBooksList();
     let cartBooks: Array<BookData> = [];
 
-    for (const [isbn, value] of Object.entries(cartData)) {
+    for (const [isbn, value] of Object.entries(this.cartData)) {
       let book = books.find((book) => book.isbn13 === isbn);
       if (!book) continue;
       book.amount = value.amount;
@@ -29,5 +30,16 @@ export class CartComponent implements OnInit {
     }
 
     return cartBooks;
+  }
+
+  getTotalCart(): string {
+    let sum = 0;
+    Object.keys(this.cartData).forEach((isbn) => {
+      const book = this.cart.find((book) => book.isbn13 === isbn);
+      if (typeof book?.price === 'string') {
+        sum += +book?.price.slice(1) * this.cartData[isbn].amount;
+      }
+    });
+    return sum.toFixed(2);
   }
 }

@@ -1,7 +1,8 @@
 <label for="search">Search</label>
-<input type="search" name="search" id="search" />
+<input type="search" name="search" id="search" [(ngModel)]="searchString"
+(ngModelChange)="searchByString()"/>
 
-<table *ngIf="books.length">
+<table *ngIf="sortedBooks.length">
   <tr>
     <th>Picture</th>
     <th>Title</th>
@@ -9,7 +10,7 @@
     <th>Price</th>
     <th>Buy</th>
   </tr>
-  <tr *ngFor="let book of books">
+  <tr *ngFor="let book of sortedBooks">
     <td>
       <img [src]="book.image" [alt]="book.title" />
     </td>
@@ -19,7 +20,7 @@
     <td>
       <button
         type="button"
-        *ngIf="!cart[book.isbn13]?.amount; in: cart; else: amountButtons"
+        *ngIf="!cart[book.isbn13]?.amount; else: amountButtons"
         (click)="addToCart(book.isbn13)"
       >
         Add to cart
