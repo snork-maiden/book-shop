@@ -5,9 +5,15 @@
 <table *ngIf="sortedBooks.length">
   <tr>
     <th>Picture</th>
-    <th>Title</th>
+    <th (click)="setSearchParams('byName')" class="sorting-header">Title 
+      <span *ngIf="sortBy?.byName === 'asc'">🔼</span>
+      <span *ngIf="sortBy?.byName === 'desc'">🔽</span>
+    </th>
     <th>Description</th>
-    <th>Price</th>
+    <th (click)="setSearchParams('byPrice')" class="sorting-header">Price
+      <span *ngIf="sortBy?.byPrice === 'asc'">🔼</span>
+      <span *ngIf="sortBy?.byPrice === 'desc'">🔽</span>
+    </th>
     <th>Buy</th>
   </tr>
   <tr *ngFor="let book of sortedBooks">
