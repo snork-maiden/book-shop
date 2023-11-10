@@ -1,5 +1,7 @@
+import { Cart } from "../interfaces";
+
 export class CartService {
-  private _cart: { [ISBN: string]: { amount: number } } = {};
+  private _cart: Cart = {};
 
   getState() {
     return this._cart;

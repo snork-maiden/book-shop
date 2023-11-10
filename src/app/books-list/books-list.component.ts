@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BookData } from '../interfaces';
+import { BookData, Cart } from '../interfaces';
 import { CartService } from '../services/cart.service';
 
 interface SortParameters {
@@ -16,7 +16,7 @@ export class BooksListComponent implements OnInit {
   books!: Array<BookData>;
   @Input() isCart: boolean = false;
 
-  cart: { [ISBN: string]: { amount: number } } = {};
+  cart: Cart = {};
   sortedBooks: Array<BookData> = [];
   filteredBooks: Array<BookData> = [];
   searchString: string = '';
@@ -107,7 +107,7 @@ export class BooksListComponent implements OnInit {
       const bPrice = +b.price.slice(1);
       return aPrice - bPrice;
     });
-    
+
     if (this.sortBy.byPrice === 'desc') {
       sortedBooks.reverse();
     }

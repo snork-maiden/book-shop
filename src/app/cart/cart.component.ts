@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookData } from '../interfaces';
+import { BookData, Cart } from '../interfaces';
 import { CartService } from '../services/cart.service';
 import { getBooksList } from '../services/book-api.service';
 
@@ -10,7 +10,7 @@ import { getBooksList } from '../services/book-api.service';
 })
 export class CartComponent implements OnInit {
   cart: Array<BookData> = [];
-  cartData: { [ISBN: string]: { amount: number } } = {};
+  cartData: Cart = {};
 
   constructor(private cartService: CartService) {}
   ngOnInit(): void {

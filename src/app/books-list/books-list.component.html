@@ -1,16 +1,23 @@
 <label for="search">Search</label>
-<input type="search" name="search" id="search" [(ngModel)]="searchString"
-(ngModelChange)="searchByString()"/>
+<input
+  type="search"
+  name="search"
+  id="search"
+  [(ngModel)]="searchString"
+  (ngModelChange)="searchByString()"
+/>
 
 <table *ngIf="sortedBooks.length">
   <tr>
     <th>Picture</th>
-    <th (click)="setSearchParams('byName')" class="sorting-header">Title 
+    <th (click)="setSearchParams('byName')" class="sorting-header">
+      Title
       <span *ngIf="sortBy?.byName === 'asc'">🔼</span>
       <span *ngIf="sortBy?.byName === 'desc'">🔽</span>
     </th>
     <th>Description</th>
-    <th (click)="setSearchParams('byPrice')" class="sorting-header">Price
+    <th (click)="setSearchParams('byPrice')" class="sorting-header">
+      Price
       <span *ngIf="sortBy?.byPrice === 'asc'">🔼</span>
       <span *ngIf="sortBy?.byPrice === 'desc'">🔽</span>
     </th>
@@ -20,13 +27,15 @@
     <td>
       <img [src]="book.image" [alt]="book.title" />
     </td>
-    <td>{{ book.title }}</td>
+    <td>
+      <a [routerLink]="'/book/' + book.isbn13">{{ book.title }}</a>
+    </td>
     <td>{{ book.subtitle }}</td>
     <td>{{ book.price }}</td>
     <td>
       <button
         type="button"
-        *ngIf="!cart[book.isbn13]?.amount; else: amountButtons"
+        *ngIf="!cart[book.isbn13]?.amount; else amountButtons"
         (click)="addToCart(book.isbn13)"
       >
         Add to cart

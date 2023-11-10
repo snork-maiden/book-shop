@@ -1,16 +1,21 @@
-<article>
-    <!-- <img :src="book.image" :alt="book.title" />
+<article *ngIf="book">
+    <img [src]="book.image" [alt]="book.title" />
     <h1>{{ book.title }}</h1>
     <p>{{ book.subtitle }}</p>
-    <div{{ book.price }}</td>
+    <div>{{ book.price }}</div>
     <div>
-      <button type="button" *ngIf="cart[book.isbn13]?.amount; else amountButtons">
-        Add to cart
-      </button>
-      <ng-template #amountButtons>
-        <button type="button">-</button>
-        {{ cart[book.isbn13].amount }}
-        <button type="button">+</button>
-      </ng-template>
-    </div> -->
+      <button
+      type="button"
+      *ngIf="!cart[book.isbn13]?.amount; else amountButtons"
+      (click)="addToCart(book.isbn13)"
+    >
+      Add to cart
+    </button>
+    <ng-template #amountButtons>
+      <button type="button" (click)="removeFromCart(book.isbn13)">-</button>
+      {{ cart[book.isbn13].amount }}
+      <button type="button" (click)="addToCart(book.isbn13)">+</button>
+    </ng-template>
+    </div>
 </article>
+

@@ -19,10 +19,10 @@ const routes: Routes = [
         path: '',
         component: MainComponent,
       },
-      // {
-      //   path: '',
-      //   component: BookPageComponent,
-      // },
+      {
+        path: 'book/:isbn',
+        component: BookPageComponent,
+      },
     ],
   },
 ];

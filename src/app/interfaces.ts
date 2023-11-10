@@ -13,3 +13,7 @@ export interface BooksList {
   total: string;
   books: Array<BookData>;
 }
+
+export interface Cart {
+  [ISBN: string]: { amount: number };
+}
