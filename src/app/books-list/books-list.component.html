@@ -1,11 +1,13 @@
-<label for="search">Search</label>
-<input
-  type="search"
-  name="search"
-  id="search"
-  [(ngModel)]="searchString"
-  (ngModelChange)="searchByString()"
-/>
+<div class="search">
+  <label for="search">Search</label>
+  <input
+    type="search"
+    name="search"
+    id="search"
+    [(ngModel)]="searchString"
+    (ngModelChange)="searchByString()"
+  />
+</div>
 
 <table *ngIf="sortedBooks.length">
   <tr>
@@ -25,7 +27,7 @@
   </tr>
   <tr *ngFor="let book of sortedBooks">
     <td>
-      <img [src]="book.image" [alt]="book.title" />
+      <img [src]="book.image" [alt]="book.title" width="150" />
     </td>
     <td>
       <a [routerLink]="'/book/' + book.isbn13">{{ book.title }}</a>
@@ -33,18 +35,7 @@
     <td>{{ book.subtitle }}</td>
     <td>{{ book.price }}</td>
     <td>
-      <button
-        type="button"
-        *ngIf="!cart[book.isbn13]?.amount; else amountButtons"
-        (click)="addToCart(book.isbn13)"
-      >
-        Add to cart
-      </button>
-      <ng-template #amountButtons>
-        <button type="button" (click)="removeFromCart(book.isbn13)">-</button>
-        {{ cart[book.isbn13].amount }}
-        <button type="button" (click)="addToCart(book.isbn13)">+</button>
-      </ng-template>
+      <app-add-to-cart-button [isbn]="book.isbn13"></app-add-to-cart-button>
     </td>
   </tr>
 </table>

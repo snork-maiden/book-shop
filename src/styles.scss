@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: clamp(16px, 1.5vw, 20px);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+button {
+    font: inherit;
+    color: inherit;
+}
+
+:root {
+    --text-color: #20201D;
+    --background-color: #E8EDED;
+    --accent-color: #50396A;
+}
+
+svg {
+    fill: var(--accent-color)
+}
+
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+

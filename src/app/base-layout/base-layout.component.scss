@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: min(3em, 10vh);
+}
+
+main {
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
