@@ -1,0 +1,13 @@
+<button
+  type="button"
+  *ngIf="!cart[isbn]?.amount; else amountButtons"
+  (click)="addToCart()"
+  class="cart"
+>
+  Add to cart
+</button>
+<ng-template #amountButtons>
+  <button type="button" (click)="removeFromCart()">-</button>
+  {{ cart[isbn].amount }}
+  <button type="button" (click)="addToCart()">+</button>
+</ng-template>

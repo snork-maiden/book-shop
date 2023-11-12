@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './services/cart.service';
 import { FormsModule } from '@angular/forms';
+import { AddToCartButtonComponent } from './add-to-cart-button/add-to-cart-button.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     BookPageComponent,
     MainComponent,
     CartComponent,
+    AddToCartButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [CartService],
