@@ -1,27 +1,31 @@
-# BookShop
+# Book Shop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+Book Shop is a lightweight, Angular-based application designed to help bookstores manage their inventories and assist customers in selecting books. It features an intuitive interface for book browsing and selection.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Home Page**: Lists books in a table with a search function and filter by title or description.
+2. **Book Details Page**: Displays detailed information about each book.
+3. **Cart**: Allows adding books to a shopping cart, visible across the application
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular 16**
+- **TypeScript**
+- **SCSS**
 
-## Build
+## Setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Install the dependencies:
 
-## Running unit tests
+    ```
+    npm install
+    ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Start the server:
 
-## Running end-to-end tests
+    ```
+    ng serve
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Visit http://localhost:4200/
