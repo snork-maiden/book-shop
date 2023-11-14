@@ -8,34 +8,35 @@
     (ngModelChange)="searchByString()"
   />
 </div>
-
-<table *ngIf="sortedBooks.length">
-  <tr>
-    <th>Picture</th>
-    <th (click)="setSearchParams('byName')" class="sorting-header">
-      Title
-      <span *ngIf="sortBy?.byName === 'asc'">🔼</span>
-      <span *ngIf="sortBy?.byName === 'desc'">🔽</span>
-    </th>
-    <th>Description</th>
-    <th (click)="setSearchParams('byPrice')" class="sorting-header">
-      Price
-      <span *ngIf="sortBy?.byPrice === 'asc'">🔼</span>
-      <span *ngIf="sortBy?.byPrice === 'desc'">🔽</span>
-    </th>
-    <th>Buy</th>
-  </tr>
-  <tr *ngFor="let book of sortedBooks">
-    <td>
-      <img [src]="book.image" [alt]="book.title" width="150" />
-    </td>
-    <td>
-      <a [routerLink]="'/book/' + book.isbn13">{{ book.title }}</a>
-    </td>
-    <td>{{ book.subtitle }}</td>
-    <td>{{ book.price }}</td>
-    <td>
-      <app-add-to-cart-button [isbn]="book.isbn13"></app-add-to-cart-button>
-    </td>
-  </tr>
-</table>
+<div class="wrapper">
+  <table *ngIf="sortedBooks.length">
+    <tr>
+      <th>Picture</th>
+      <th (click)="setSearchParams('byName')" class="sorting-header">
+        Title
+        <span *ngIf="sortBy?.byName === 'asc'">🔼</span>
+        <span *ngIf="sortBy?.byName === 'desc'">🔽</span>
+      </th>
+      <th>Description</th>
+      <th (click)="setSearchParams('byPrice')" class="sorting-header">
+        Price
+        <span *ngIf="sortBy?.byPrice === 'asc'">🔼</span>
+        <span *ngIf="sortBy?.byPrice === 'desc'">🔽</span>
+      </th>
+      <th>Buy</th>
+    </tr>
+    <tr *ngFor="let book of sortedBooks">
+      <td>
+        <img [src]="book.image" [alt]="book.title" width="150" />
+      </td>
+      <td>
+        <a [routerLink]="'/book/' + book.isbn13">{{ book.title }}</a>
+      </td>
+      <td>{{ book.subtitle }}</td>
+      <td>{{ book.price }}</td>
+      <td>
+        <app-add-to-cart-button [isbn]="book.isbn13"></app-add-to-cart-button>
+      </td>
+    </tr>
+  </table>
+</div>
